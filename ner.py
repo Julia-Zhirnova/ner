@@ -55,8 +55,7 @@ avgtime = 0
 # Capture frames from the camera
 for frame in camera.capture_continuous(capture, format="bgra", use_video_port=True, resize=(img_width,img_height)):
     counter+=1
-    cv2.imshow("pair", frame)    
-    key = cv2.waitKey(1) & 0xFF
+    
     object_counting_api.cumulative_object_counting_x_axis(frame, detection_graph, category_index,
                                                           is_color_recognition_enabled, roi, deviation,
                                                           custom_object_name)  # counting all the objects
